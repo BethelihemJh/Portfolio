@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to My Portfolio</title>
+    <style>
+        body {
+            font-family: 'Dancing Script', cursive, sans-serif;
+            background-color: #DAA520; /* Golden background */
+            color: black; /* Black text */
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            font-size: 28px;
+        }
+
+        /* Header Section with clickable links */
+        header {
+            display: flex;
+            justify-content: center;
+            background-color: #333333;
+            color: white;
+            padding: 20px;
+        }
+
+        .header-link {
+            font-size: 32px;
+            margin: 0 30px;
+            color: #DAA520;
+            padding: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .header-link:hover {
+            background-color: #007bff;
+        }
+
+        /* Sections Layout */
+        section {
+            display: none;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        /* Home Section Styling */
+        #home-section {
+            display: block;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* About Section Layout */
+        #about-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 50px;
+            padding: 20px;
+            position: relative;
+            max-width: 90%;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        #about-text {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+            margin-top: 50px; /* Increased space to ensure no overlap */
+        }
+
+        .hello-text {
+            font-size: 64px; /* Increased text size */
+            font-weight: bold;
+            margin-bottom: 10px; /* Reduced space between the text and the picture */
+        }
+
+        /* Profile Image Styling */
+        #profile-pic {
+            width: 500px;  /* Increased size */
+            height: 500px; /* Increased size */
+            border-radius: 50%;
+            object-fit: cover;
+            margin-top: 10px;  /* Reduced space */
+            margin-bottom: 50px; /* Increased space from paragraph */
+        }
+
+        /* Gallery Section */
+        .gallery-item {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .gallery-item img {
+            width: 250px;
+            height: 250px;
+            margin-right: 20px;
+            border-radius: 10px;
+            object-fit: cover;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .gallery-item img:hover {
+            transform: scale(1.2);
+        }
+
+        .description-container {
+            max-width: 500px;
+            font-size: 20px;
+            color: black;
+        }
+
+        /* Personal Information Section */
+        #personal-info-section p {
+            font-size: 24px;
+            line-height: 1.8;
+            color: black;
+        }
+
+        /* Media Queries for Mobile Devices */
+        @media (max-width: 768px) {
+            body {
+                font-size: 22px;
+            }
+
+            .header-link {
+                font-size: 24px;
+                margin: 0 15px;
+            }
+
+            #home-section h2 {
+                font-size: 36px;
+            }
+
+            /* Adjusting profile picture */
+            #profile-pic {
+                width: 350px;
+                height: 350px;
+                margin-top: 10px; /* Reduced space */
+                margin-bottom: 30px; /* Increased space from paragraph */
+            }
+
+            #about-text {
+                max-width: 90%;
+                text-align: center;
+                margin-right: 0;
+            }
+
+            .hello-text {
+                font-size: 48px; /* Increased text size */
+                margin-bottom: 10px; /* Reduced margin */
+            }
+
+            /* Adjust paragraph styling */
+            #about-text p {
+                font-size: 18px;
+                line-height: 1.6;
+            }
+
+            /* Ensuring about section aligns properly */
+            #about-section {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 10px;
+            }
+        }
+
+        /* Media Queries for Extra Small Devices (Phones) */
+        @media (max-width: 480px) {
+            #home-section {
+                margin-top: 10px;
+            }
+
+            .header-link {
+                font-size: 20px;
+            }
+
+            #about-section {
+                flex-direction: column;
+                margin-top: 30px;
+                padding: 10px;
+            }
+
+            #profile-pic {
+                width: 300px; /* Slightly smaller on phones */
+                height: 300px;
+                margin-top: 10px; /* Reduced space */
+                margin-bottom: 40px; /* Increased space from paragraph */
+            }
+
+            .hello-text {
+                font-size: 48px; /* Increased text size */
+                margin-bottom: 10px; /* Reduced margin */
+            }
+
+            #about-text {
+                text-align: center;
+                margin-top: 20px;
+            }
+
+            .gallery-item img {
+                width: 100%;
+                height: auto;
+            }
+
+            .description-container {
+                font-size: 16px;
+            }
+
+            #personal-info-section p {
+                font-size: 18px;
+            }
+        }
+
+        /* Flexbox layout to ensure no overlap in the about section */
+        .about-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .about-container .text-img-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            gap: 5px; /* Reduced gap for even closer spacing */
+            margin-bottom: 20px; /* Added margin to separate the content */
+        }
+
+        .about-container .text-img-container img {
+            max-width: 250px;
+            max-height: 250px; /* Larger image on desktop */
+        }
+
+        .about-container .text-img-container .text {
+            flex: 1;
+            text-align: left;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-link" id="home-headline">Home</div>
+        <div class="header-link" id="about-headline">About</div>
+        <div class="header-link" id="gallery-headline">Gallery</div>
+        <div class="header-link" id="personal-info-headline">Personal Information</div>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home-section">
+        <h2>Welcome to my Portfolio</h2>
+        <div style="margin-top: 50px;">
+            <p class="home-text">Swipe for more information 👉</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about-section">
+        <div class="about-container">
+            <div class="text-img-container">
+                <div class="text">
+                    <p class="hello-text"><strong>This is Bethelihem</strong></p>
+                </div>
+                <img src="Bethelihem.jpg" alt="Bethelihem's Profile Picture" id="profile-pic">
+            </div>
+            <div id="about-text">
+                <p>
+                    I began my educational journey at SOS Kindergarten and continued at SOS Hermann Gmeiner School, where I completed my schooling up to grade 12. My time there was filled with countless memories, from my first attempts to graduation. I remember the joy of playing, the camaraderie of helping prepare the table for our meals as part of our program, and the countless moments that still make me smile. Throughout elementary, high school, and preparatory school, I had many unforgettable memories. The teachers were incredibly supportive and would often ask me about my future college pursuits and my elder sibling's studies. They also made me feel comfortable enough to seek their advice on various matters, which was immensely helpful.
+                    In my first year at the Quiha Meles Campus of Mekelle University, it was a bit challenging as I had to manage studying on my own, my social interactions, how to behave with roommates next door and across the hall, how to manage my money, and with whom I should associate. At the Arid Campus of Mekelle University, things became easier as I gained experience and lessons from the Meles Campus. Now, I am still learning software engineering, and my journey continues.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery-section">
+        <div class="gallery-item">
+            <img src="Hermann Gmeiner.jpg" alt="Hermann Gmeiner" />
+            <div class="description-container">
+                <p>Hermann Gmeiner founded SOS Children's Villages in 1949. Starting in Austria, his vision grew to 233 villages in 85 countries by 1986.</p>
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="SOS logo.jpg" alt="SOS Logo" />
+            <div class="description-container">
+                <p>The logo of SOS Children's Villages Ethiopia.</p>
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="Mekelle university.jpg" alt="Mekelle University" />
+            <div class="description-container">
+                <p>Mekelle University, in Tigray, Ethiopia, is a large public university established in 2000. It excels with around 31,000 students.</p>
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="Ashegoda.jpg" alt="Ashegoda" />
+            <div class="description-container">
+                <p>A place where we attend class and it is near by the dorm.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personal Information Section -->
+    <section id="personal-info-section">
+        <p><strong>Full Name:</strong> Bethelihem Habte Hadush</p>
+        <p><strong>ID Number:</strong> UGR/178295/12</p>
+        <p><strong>Section:</strong> 02</p>
+        <p><strong>Department:</strong> Third year Software Engineering</p>
+        <p>For any creative website inquiries, email me at <a href="mailto:bethelihemjh@gmail.com">bethelihemjh@gmail.com</a></p>
+    </section>
+
+    <script>
+        // JavaScript to handle section switching
+        const sections = document.querySelectorAll("section");
+        const links = document.querySelectorAll(".header-link");
+
+        links.forEach(link => {
+            link.addEventListener("click", () => {
+                sections.forEach(section => {
+                    section.style.display = "none";
+                });
+
+                const sectionId = link.id.replace("-headline", "-section");
+                document.getElementById(sectionId).style.display = "block";
+            });
+        });
+    </script>
+</body>
+</html>
